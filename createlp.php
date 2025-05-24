@@ -1,5 +1,5 @@
 <?php
-$data = file('sreymomdata/rendang.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$data = file('rendang.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $dirs = [];
 
