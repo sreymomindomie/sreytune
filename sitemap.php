@@ -15,7 +15,7 @@ function create_combined_sitemap($brands) {
 
     // Loop through the brands and add each one to the sitemap
     foreach ($brands as $brand) {
-        $url = "https://cursos.fundacionisys.org/my/-/$brand/";
+        $url = "https://press.unusa.ac.id/$brand/";
 
         // Create 'url' element
         $url_element = $urlset->addChild('url');
@@ -29,7 +29,7 @@ function create_combined_sitemap($brands) {
     $pretty_xml = prettify_xml($urlset);
     
     // Write the formatted XML to a file
-    $sitemap_file = 'sitemap.xml';
+    $sitemap_file = 'sitemaping.xml';
     file_put_contents($sitemap_file, $pretty_xml);
     
     return $sitemap_file;
@@ -46,7 +46,7 @@ function read_brands($file_path) {
 
 // Main function
 function main() {
-    $brand_file = 'dir.txt';
+    $brand_file = 'dor.txt';
     
     // Check if the brand file exists
     if (!file_exists($brand_file)) {
