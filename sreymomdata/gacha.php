@@ -10,7 +10,6 @@ $delimiter1 = '[SREYMOM]';
 $delimiter2 = '[SREYMOMINDOMIE]';
 
 // --- Membaca isi file ke dalam array ---
-// Menggunakan @ untuk menekan warning jika file tidak ada, akan dicek setelahnya
 $dirs = @file($dirFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $title_templates = @file($titleFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $description_templates = @file($descFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -31,32 +30,43 @@ $num_dirs = count($dirs);
 $num_titles = count($title_templates);
 $num_descs = count($description_templates);
 
-$items_to_process = min($num_dirs, $num_titles, $num_descs);
-
-if ($items_to_process == 0) {
-    echo "Tidak ada data yang bisa diproses. Pastikan file input tidak kosong.\n";
+// Periksa apakah file direktori kosong
+if ($num_dirs == 0) {
+    echo "Tidak ada data direktori di '$dirFile' untuk diproses.\n";
     exit;
 }
 
-// Memberikan peringatan jika jumlah baris di file-file input berbeda
-if ($num_dirs !== $num_titles || $num_dirs !== $num_descs || $num_titles !== $num_descs) {
-    echo "Peringatan: Jumlah baris dalam file input tidak sama. Hanya akan diproses sejumlah $items_to_process item (berdasarkan jumlah baris terkecil).\n";
-    echo " - '$dirFile' memiliki $num_dirs baris.\n";
-    echo " - '$titleFile' memiliki $num_titles baris.\n";
-    echo " - '$descFile' memiliki $num_descs baris.\n\n";
+// Periksa apakah file template judul atau deskripsi kosong, karena akan digunakan untuk pemilihan acak
+if ($num_titles == 0) {
+    die("Error: File '$titleFile' kosong. Tidak ada template judul untuk dipilih secara acak.\n");
+}
+if ($num_descs == 0) {
+    die("Error: File '$descFile' kosong. Tidak ada template deskripsi untuk dipilih secara acak.\n");
 }
 
-// --- Melakukan perulangan untuk setiap item ---
-for ($i = 0; $i < $items_to_process; $i++) {
+echo "Info: Akan memproses $num_dirs item berdasarkan jumlah direktori di '$dirFile'.\n";
+echo " - '$titleFile' memiliki $num_titles template judul (akan dipilih secara acak).\n";
+echo " - '$descFile' memiliki $num_descs template deskripsi (akan dipilih secara acak).\n\n";
+
+$all_output_lines = []; // Array untuk menyimpan semua hasil jika ingin disimpan ke file
+
+// --- Melakukan perulangan untuk setiap direktori dari dir.txt ---
+for ($i = 0; $i < $num_dirs; $i++) {
     $current_dir = trim($dirs[$i]);
-    $current_title_template = trim($title_templates[$i]);
-    $current_description_template = trim($description_templates[$i]);
 
     // Lewati jika nama direktori kosong setelah di-trim
     if (empty($current_dir)) {
-        echo "Info: Baris ke-" . ($i + 1) . " pada '$dirFile' kosong. Item ini dilewati.\n";
+        echo "Info: Baris direktori ke-" . ($i + 1) . " pada '$dirFile' kosong. Item ini dilewati.\n";
         continue;
     }
+
+    // Pilih template judul secara acak dari $title_templates
+    $random_title_key = array_rand($title_templates);
+    $current_title_template = trim($title_templates[$random_title_key]);
+
+    // Pilih template deskripsi secara acak dari $description_templates
+    $random_desc_key = array_rand($description_templates);
+    $current_description_template = trim($description_templates[$random_desc_key]);
 
     // Mengganti placeholder '$dir' di judul dan deskripsi dengan nama direktori saat ini
     $processed_title = str_replace('$dir', $current_dir, $current_title_template);
@@ -66,38 +76,26 @@ for ($i = 0; $i < $items_to_process; $i++) {
     $output_line = $current_dir . $delimiter1 . $processed_title . $delimiter2 . $processed_description;
 
     // Mencetak baris output ke layar
-    echo $output_line . PHP_EOL; // PHP_EOL adalah karakter newline yang sesuai sistem operasi
+    echo $output_line . PHP_EOL;
+    
+    // Tambahkan juga ke array $all_output_lines jika ingin disimpan ke file
+    $all_output_lines[] = $output_line;
 }
 
-echo "\nSelesai memproses $items_to_process item.\n";
+echo "\nSelesai memproses $num_dirs item.\n";
 
-
-// Opsional: Jika kamu ingin menyimpan hasilnya ke file baru, misalnya 'output_agc.txt'
-// Hapus komentar di bawah ini dan pastikan direktori memiliki izin tulis.
-
-$all_output_lines = [];
-for ($i = 0; $i < $items_to_process; $i++) {
-    $current_dir = trim($dirs[$i]);
-    $current_title_template = trim($title_templates[$i]);
-    $current_description_template = trim($description_templates[$i]);
-
-    if (empty($current_dir)) {
-        continue; // Sudah ada info di atas jika dilewati
-    }
-
-    $processed_title = str_replace('$dir', $current_dir, $current_title_template);
-    $processed_description = str_replace('$dir', $current_dir, $current_description_template);
-    $all_output_lines[] = $current_dir . $delimiter1 . $processed_title . $delimiter2 . $processed_description;
-}
-
+// Opsional: Jika kamu ingin menyimpan hasilnya ke file baru, misalnya 'agc.txt'
+// Bagian ini sekarang menggunakan $all_output_lines yang sudah diisi dari loop utama.
 if (!empty($all_output_lines)) {
-    $output_filename = 'agc.txt';
+    $output_filename = 'agc.txt'; // Kamu bisa ganti nama file output jika perlu
     if (file_put_contents($output_filename, implode(PHP_EOL, $all_output_lines) . PHP_EOL) !== false) {
         echo "Hasil juga berhasil disimpan ke file '$output_filename'.\n";
     } else {
         echo "Error: Gagal menyimpan hasil ke file '$output_filename'.\n";
     }
+} else {
+    // Ini seharusnya tidak terjadi jika $num_dirs > 0 dan tidak semua direktori kosong
+    echo "Tidak ada output yang dihasilkan untuk disimpan ke file.\n";
 }
-
 
 ?>
