@@ -36,7 +36,7 @@ foreach ($data as $item) {
     }
 }
 
-file_put_contents('dir.txt', implode(PHP_EOL, $dirs), FILE_APPEND);
+file_put_contents('sreymomdata/dir.txt', implode(PHP_EOL, $dirs), FILE_APPEND);
 
 echo "Direktori dan file index.php telah berhasil dibuat dan nama direktori disimpan dalam dir.txt.";
 ?>
