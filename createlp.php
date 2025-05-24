@@ -1,5 +1,5 @@
 <?php
-$data = file('agc.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$data = file('sreymomdata/agc.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $dirs = [];
 
