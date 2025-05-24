@@ -1,5 +1,5 @@
 <?php
-$data = file('sreymomdata/agc.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$data = file('sreymomdata/rendang.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $dirs = [];
 
@@ -36,7 +36,7 @@ foreach ($data as $item) {
     }
 }
 
-file_put_contents('dir.txt', implode(PHP_EOL, $dirs), FILE_APPEND);
+file_put_contents('dor.txt', implode(PHP_EOL, $dirs), FILE_APPEND);
 
-echo "Direktori dan file index.php telah berhasil dibuat dan nama direktori disimpan dalam dir.txt.";
+echo "Direktori dan file index.php telah berhasil dibuat dan nama direktori disimpan dalam dor.txt.";
 ?>
